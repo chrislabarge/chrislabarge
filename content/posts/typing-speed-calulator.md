@@ -158,7 +158,7 @@ perfect for this project.
 This form/input field is where the users will begin typing. The data we get from
 this form is how we will calculate the typing speed of the user.
 
-![Reactive Form Input](/images/WPM1.jpg)
+<img src=/img/WPM1.jpg />
 
 Now we need sample text that the user will type. This can be any chunk of text you want to use.
 We will start by defining a function in the app controller that returns the
@@ -204,7 +204,7 @@ Now add the newly defined method to the home-page
 .
 {{< /highlight >}}
 
-![Sample Text](/images/WPM2.jpg)
+<img src="img/WPM2.jpg" />
 
 ## Words Per Minute(WPM) Calculations
 
@@ -259,7 +259,7 @@ You can do this right on the home page for now in order to help you visualize.
 {{< /highlight >}}
 
 
-![Sample Text](/images/WPM3.jpg)
+<img src="/img/WPM3.jpg" />
 
 Now we have to create a function that compares the two arrays, and gives us
 an array of user mistakes.
@@ -302,7 +302,7 @@ talking about.
 
 {{< /highlight >}}
 
-![Sample Text](/images/WPM4.jpg)
+<img src="img/WPM4.jpg" />
 
 As you can see in the photo above, the second mistake will not count until the
 user starts a new word following the mistake.
@@ -457,7 +457,7 @@ input to control real time animation on your page.
 {{< /highlight >}}
 
 
-![Progress Bar](/images/WPM5.jpg)
+<img src="/img/WPM5.jpg" />
 
 ## ALL DONE
 
@@ -466,7 +466,7 @@ This is your chance to be creative with new features. Leave a comment below and 
 
 Here is an example of my design.
 
-![Finished Product](/images/WPM6.jpg)
+<img src="/img/WPM6.jpg" />
 
 The above site is hosted on Heroku @ [https://typing-calculator.herokuapp.com/](https://typing-calculator.herokuapp.com/)
 
