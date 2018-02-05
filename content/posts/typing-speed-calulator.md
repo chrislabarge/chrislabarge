@@ -1,6 +1,6 @@
 ---
-title: "How I Made a Typing Speed Calulator"
-date: 2017-12-30T18:30:21-05:00
+title: "How I Made a Typing Speed Calculator"
+date: 2015-03-26 12:01:27
 draft: false
 img: 'WPM6.jpg'
 ---

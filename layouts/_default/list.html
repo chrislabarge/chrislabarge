@@ -3,8 +3,8 @@
 <section id=content>
     <ul class=posts_listing>
       {{ range .Data.Pages }}
-        <div id="posts">
-          <div id=date class="date-time-title">
+        <div class="list-item">
+          <div class="date-time-title date">
               <time>{{ .Date.Format (.Site.Params.dateform | default "Jan 02 2006") }}</time>
           </div>
           <div class="date-time-title post">

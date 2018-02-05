@@ -1,8 +1,8 @@
 {{ partial "header.html" . }}
-
-<section id=content>
+<div id="landing">
+  <section id=content>
     <ul class=posts_listing>
-        <div id="posts">
+        <div class="list-item">
           <div class="date-time-title post">
             <a href="/about">About Me</a>
           </div>
@@ -10,7 +10,7 @@
               <!-- Here we go -->
           </div>
         </div>
-        <div id="posts">
+        <div class="list-item">
           <div class="date-time-title post">
             <a href="/projects">Projects</a>
           </div>
@@ -18,7 +18,7 @@
               <!-- Here we go -->
           </div>
         </div>
-        <div id="posts">
+        <div class="list-item">
           <div class="date-time-title post">
             <a href="/posts">Blog</a>
           </div>
@@ -28,5 +28,5 @@
         </div>
     </ul>
   </section>
-
+</div>
 {{ partial "footer.html" . }}

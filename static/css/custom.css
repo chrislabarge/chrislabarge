@@ -1,16 +1,32 @@
 
 #content {
-  height: 40em;
-  display: flex;
+  /* /* height: 40em;
+  display: flex; */
   align-items: center;
-  justify-content: center
-}
-.posts_listing {
-  padding-left: 0;
+  justify-content: center;
 }
 
-#posts {
+#content {
+  text-align: center;
+}
+
+.posts_listing {
   padding-left: 0;
+  margin-top: 20%;
+  text-align: center;
+  display: inline-block;
+}
+
+
+
+.list-item {
+  padding-left: 0;
+  text-align: left;
+  padding-top: 7px;
+}
+
+#landing .list-item {
+
   text-align: center;
 }
 
@@ -35,6 +51,88 @@
 .highlight pre {
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 15px;
   padding-right: 15px;
+  border-radius: 8px;
+}
+
+.contact-options {
+  text-align: center;
+}
+.contact-options .social-icons {
+  font-size: 30px;
+}
+
+.social-icons a, .navbar a {
+  color: black;
+}
+
+.social-icons svg:hover {
+  transform: scale(1.2);
+}
+
+h1 {
+  font-size: 31px;
+}
+
+#nav {
+  text-align: center;
+}
+
+.navbar {
+  padding-left: 0;
+  list-style-type: none;
+}
+.navbar li {
+  display: inline;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+  padding-bottom: 40px;
+}
+
+.navbar a:hover{
+  text-decoration: underline;
+}
+
+.footer {
+  padding-bottom: 15px;
+  height: 84px;
+}
+
+.date {
+  font-size: 14px;
+}
+
+.blog-post-subheader span {
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 515px) {
+  .date-time-title {
+    display: block;
+  }
+
+  .list-item {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #landing .list-item {
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 0;
+  }
 }

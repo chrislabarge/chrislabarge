@@ -1,6 +1,6 @@
 ---
 title: "Installing Raspberry Pi OS on SD card"
-date: 2017-12-30T18:30:21-05:00
+date: 2017-02-27T18:30:21-05:00
 draft: false
 img: 'pi.jpg'
 ---

@@ -1,0 +1,26 @@
+        </div>
+        <div class="footer">
+            <div class="contact-options">
+                <div class="social-icons">
+                    <a href="https://github.com/chrislabarge">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:chrislabargedev@gmail.com">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            {{ if not .IsHome }}
+                <section id=nav>
+                    <ul class=navbar>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Me</a></li>
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/posts">Blog</a></li>
+                    </ul>
+                </section>
+            {{ end }}
+        </div>
+    </body>
+</html>
