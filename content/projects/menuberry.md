@@ -6,10 +6,10 @@ img: "menuberry.png"
 site: "https://www.menuberry.org"
 ---
 
-MenuBerry is a app for vegans to discover what to eat at restaurants.
+MenuBerry is resource for vegans to discover food options at restaurants.
 
-I have been building MenuBerry part-time for the last year or so.  It started as a hobby project that eventually grew over time. It is still in the early days, but it's fully functional for people to use.
-Visitors can utilize the application by using it as a resource to find restaurants plus vegan options, as well as sign up to receive updates and contribute content.
+I have been building MenuBerry part-time for the last year or so.  It started as a hobby project that eventually grew over time. It is still in the early days, but it's fully functional.
+Visitors can utilize the application as a resource to find restaurants and vegan options.  Registered users are allowed to and contribute content and receive updates about their favorite restaurants.
 
 ## Tech Stack
 
