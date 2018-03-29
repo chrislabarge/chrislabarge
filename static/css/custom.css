@@ -22,7 +22,7 @@
 .list-item {
   padding-left: 0;
   text-align: left;
-  padding-top: 7px;
+  padding-top: 15px;
 }
 
 #landing .list-item {
@@ -66,7 +66,11 @@
   color: black;
 }
 
-.social-icons svg:hover {
+.social-icons svg:hover,
+.list-item:hover,
+.navbar li div:hover,
+#page-title:hover
+{
   transform: scale(1.2);
 }
 
@@ -87,6 +91,10 @@ h1 {
   padding-left: 5px;
   padding-right: 5px;
   font-size: 12px;
+}
+
+.navbar li div {
+  display: inline-block;
 }
 
 html, body {
@@ -132,7 +140,7 @@ body {
 
   #landing .list-item {
     text-align: center;
-    padding-top: 7px;
+    padding-top: 15px;
     padding-bottom: 0;
   }
 }
