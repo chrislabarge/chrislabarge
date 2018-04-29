@@ -10,7 +10,7 @@ img: 'headless.jpeg'
 - How to set up the driver to allow from automatic browser downloads.
 
 ## Who This Is For
-- Ruby developers wanting to use the Chrome Driver with for their browser automations.
+- Ruby developers wanting to use the Chrome Driver for their browser automations.
 - Coders looking for a solution to headless file downloads using the browser.
 - Coders that need to run a non headless web driver in a headless environment.
 
@@ -27,7 +27,7 @@ Most of the pdf's I was scraping came from websites that would render them at UR
 
 Well unfortunetly I ran into a situation where the website would only let the user download the pdf as a file-attachment.  You cannot download files from the browser using Phantom JS.  This makes sense considering the whole point of Phantom JS is that it is truley headless driver.
 
-I would have to bring in [ Selenium ](http://robotframework.org/SeleniumLibrary/) after all.  Selenium is the end all be all of  automated browser interaction libraries. You can utlize several different web drivers with it, and integrate it with Capybara.  This allowed me to use Selenium in replace of Poltergiest without having to change any of my code.
+I would have to bring in [ Selenium ](http://robotframework.org/SeleniumLibrary/) after all.  Selenium is the end all be all of  automated browser interaction libraries. You can utilize several different web drivers with it, and integrate it with Capybara.  This allowed me to use Selenium in replace of Poltergiest without having to change any of my code.
 
 I decided to go with the [ Chrome Driver ](https://sites.google.com/a/chromium.org/chromedriver/) because I when I was researching how I could download the pdf's using a headless driver someone suggested that the Chrome Driver had a new headless feature that would allow for downloading.(nope!)
 
