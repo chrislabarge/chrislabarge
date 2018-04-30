@@ -7,7 +7,7 @@ img: 'headless.jpeg'
 ## What You Will Learn
 - How to use a non headless web driver on a headless server.
 - How to setup the Chrome Driver with Selenium and Capybara.
-- How to set up the driver to allow from automatic browser downloads.
+- How to set up the driver to allow for automatic browser downloads.
 
 ## Who This Is For
 - Ruby developers wanting to use the Chrome Driver for their browser automations.
@@ -95,7 +95,7 @@ Well that is where  Xvfb comes it.  It creates a virtual monitor and allows you 
 
 [Xvfb Tutorial](http://tobyho.com/2015/01/09/headless-browser-testing-xvfb/)
 
-Well as long as Xvfb is properly installed all you need to do is pass the command that kicks off your Capybara Session to the "xvfb-run" command.
+As long as Xvfb is properly installed all you need to do is pass the command that kicks off your Capybara Session to the "xvfb-run" command.
 
 {{< highlight bash >}}
   xvfb-run bundle exec rake scrape_pdfs
