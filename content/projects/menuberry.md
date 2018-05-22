@@ -16,3 +16,7 @@ Visitors can utilize the application as a resource to find restaurants and vegan
 - Ruby on Rails
 - Semantic UI
 - JQuery
+- Google Places
+
+## Code
+[Github Repo](https://github.com/chrislabarge/vegan-choices)
