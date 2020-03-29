@@ -17,8 +17,6 @@
   display: inline-block;
 }
 
-
-
 .list-item {
   padding-left: 0;
   text-align: left;
@@ -64,7 +62,7 @@
 }
 
 .social-icons a, .navbar a {
-  color: black;
+  color: white;
 }
 
 .social-icons svg:hover,
@@ -97,6 +95,7 @@ h1 {
 .navbar li div {
   display: inline-block;
 }
+
 
 html, body {
   height: 100%;
@@ -145,3 +144,14 @@ body {
     padding-bottom: 0;
   }
 }
+
+
+// Dark Mode
+
+html {
+  background-color: #242729 !important;
+  color: white !important;
+}
+
+body {  color: white; }
+a { color: white !important; }

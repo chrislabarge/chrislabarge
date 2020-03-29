@@ -5,4 +5,4 @@ This is a Hugo development repo for my personal website.  Any changes I make hap
 ## Tools
 - [Hugo](https://gohugo.io)
 - [Elephants Theme](https://themes.gohugo.io/elephants/)
-- Github Pages
+- [Github Pages](https://pages.github.com/)
