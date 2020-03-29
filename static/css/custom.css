@@ -63,11 +63,14 @@
   font-size: 30px;
 }
 
+.social-icons a {
+  padding: 0 10px;
+}
+
 .social-icons svg:hover,
 .list-item:hover,
 .navbar li div:hover,
-#page-title:hover
-{
+#page-title:hover {
   transform: scale(1.2);
 }
 
@@ -183,4 +186,40 @@ h1 { padding: 25px 0px 15px 0px }
 h2 { padding: 20px 0px 10px 0px }
 
 h3, h4, h5 {
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+  font-size: 15px;
+}
+
+.tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
 }
