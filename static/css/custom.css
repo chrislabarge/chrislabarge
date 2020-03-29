@@ -12,7 +12,7 @@
 
 .posts_listing {
   padding-left: 0;
-  margin-top: 20%;
+  margin-top: 10%;
   text-align: center;
   display: inline-block;
 }
@@ -37,7 +37,6 @@
   height: 100%;
   border-radius: 26px;
 }
-
 .blog-post {
   padding-right: 1em;
 }
@@ -46,11 +45,14 @@
   width: 100%
 }
 
+.highlight {
+  padding: 10px 0 10px 0
+}
+
 .highlight pre {
-  overflow: scroll;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
   border-radius: 8px;
 }
 
@@ -59,10 +61,6 @@
 }
 .contact-options .social-icons {
   font-size: 30px;
-}
-
-.social-icons a, .navbar a {
-  color: white;
 }
 
 .social-icons svg:hover,
@@ -95,7 +93,6 @@ h1 {
 .navbar li div {
   display: inline-block;
 }
-
 
 html, body {
   height: 100%;
@@ -146,12 +143,44 @@ body {
 }
 
 
-// Dark Mode
-
 html {
   background-color: #242729 !important;
-  color: white !important;
 }
 
-body {  color: white; }
-a { color: white !important; }
+body {
+  color: white;
+  background-color: #242729 !important;
+}
+
+a {
+  color: #8be9fd !important;
+}
+
+.social-icons a, .navbar a, h1 a {
+  color: white !important;
+}
+html.light {
+  background-color: white !important;
+}
+
+html.light body {
+  color: black;
+  background-color: white !important;
+}
+
+html.light a {
+  color: #a35dff !important;
+}
+
+html.light .social-icons a,
+html.light .navbar a,
+html.light h1 a,
+html.light .list-item a {
+  color: black !important;
+}
+
+h1 { padding: 25px 0px 15px 0px }
+h2 { padding: 20px 0px 10px 0px }
+
+h3, h4, h5 {
+}
