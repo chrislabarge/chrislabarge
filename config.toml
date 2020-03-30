@@ -1,6 +1,6 @@
 baseURL = "http://chrislabarge.com/"
 languageCode = "en-us"
-title = "Chris LaBarge"
+title = "Chris LaBarge - Software Developer - Portfolio"
 theme = "elephants"
 [markup]
   [markup.highlight]
@@ -13,6 +13,7 @@ theme = "elephants"
     noClasses = true
     style = "dracula"
     tabWidth = 2
-
 [params]
     sitename = "Chris LaBarge"
+    imgAlt = "A image that is associated to the content below. Sometimes a play on words."
+    description = "Chris LaBarge is a software developer living in Albany New York, who specializes in building web applications using Ruby on Rails"

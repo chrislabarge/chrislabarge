@@ -1,5 +1,22 @@
 ---
-title: "About"
+title: "About Chris"
+description: "A page about Chris LaBarge. This page list's current Hobbies and development tools used by Chris."
 img: 'wedding.jpg'
+imgAlt: "A photo of Chris and his Wife on their wedding day"
 ---
-I am a web developer from Albany NY and the creator of <a href="/projects/menuberry">MenuBerry</a>. Recently, I married my soulmate Jessica. I enjoy programming, playing guitar, watching movies and hiking. I really love building new things with software, hardware, and/or construction. It is always great to work on projects with new people, so contact me if you would like to collaborate!
+
+I am a software developer from Albany NY.
+
+I enjoy programming, playing guitar, watching movies and hiking.
+
+I really love building new things with software, hardware, and/or construction.
+
+It is always great to work on projects with new people, so contact me if you
+would like to collaborate!
+
+Some **Tools** I use on a daily basis.
+
+ -  NeoVim
+ -  TMUX
+ -  Ruby on Rails
+ -  Rspec

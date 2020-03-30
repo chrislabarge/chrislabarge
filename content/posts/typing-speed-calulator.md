@@ -1,8 +1,10 @@
 ---
 title: "How I Made a Typing Speed Calculator"
+description: "An overview of how I created a Words Per Minute Typing Calculator using Ruby, and the Volt web framework."
 date: 2015-03-26 12:01:27
 draft: false
 img: 'WPM6.jpg'
+imgAlt: "A photo of the Words Per Minute Typing Calculator demo app's landing page."
 ---
 
 ## Overview
@@ -472,8 +474,3 @@ The above site is hosted on Heroku @ [https://typing-calculator.herokuapp.com/](
 
 You can view the code for this application
 on my [Github](https://github.com/chrislabarge/typing-calculator)
-
-
-
-
-

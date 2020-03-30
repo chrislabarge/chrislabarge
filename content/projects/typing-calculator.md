@@ -1,8 +1,10 @@
 ---
 title: "Typing Speed Calculator"
+description: "A portfolio page for a 'Words Per Minute Typing Calculator' I made using Ruby and the Volt web framework."
 date: 2015-03-02T18:30:21-05:00
 draft: false
 img: "wpm.jpg"
+imgAlt: "A photo of the Words Per Minute Typing Calculator demo app's landing page."
 site: 'https://typing-calculator.herokuapp.com/'
 ---
 

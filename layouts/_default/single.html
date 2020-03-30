@@ -2,7 +2,7 @@
 
 <section class="blog-post">
     {{ if .Params.img }}
-    <img class="header-img" src="/img/{{ .Params.img }}" />
+    <img class="header-img" src="/img/{{ .Params.img }}" alt="{{ .Params.imgAlt | default .Site.Params.imgAlt }}" />
     {{ end }}
     <h1>{{ .Title }}</h1>
     <div class="blog-post-subheader">

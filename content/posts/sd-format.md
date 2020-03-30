@@ -1,10 +1,11 @@
 ---
 title: "Installing Raspberry Pi OS on SD card"
+description: "A guide for formatting and installing operating systems on micro SD cards for the purpose of running Raspberry Pi micro computers."
 date: 2017-02-27T18:30:21-05:00
 draft: false
 img: 'pi.jpg'
+imgAlt: "A photo of a Raspberry Pi micro computer."
 ---
-
 
 ## Overview
 A [Raspberry Pi](https://www.raspberrypi.org/) is an $35 dollar computer that is the size of a credit card.
@@ -297,4 +298,3 @@ Once you have entered the correct command, the installation will begin. This tak
 Once the installation is complete, you can eject the SD card from your computer and insert the microSD card into your Raspberry Pi.  And if everything goes well, you should witness your Pi boot up with installed operating system. Congradulations!  You just installed a operating system using only the command line, that wasn't so hard was it?
 
 If you have any questions, issues, or advice, please send me an email and I will be more then happy to respond.
-

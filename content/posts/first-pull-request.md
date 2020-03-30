@@ -1,8 +1,10 @@
 ---
 title: "My first Pull Request (Tutorial)"
+description: "A guide aimed at beginners for creating a Pull Request on Github."
 date: 2015-03-18 12:01:27
 draft: false
 img: 'pull.jpg'
+imgAlt: "A page screen shot of a Github Repository, with a giant blue arrow pointing to the 'Create pull request' button."
 ---
 
 ## Overview

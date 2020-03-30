@@ -1,8 +1,10 @@
 ---
 title: "Rails '#delete_all' - Fast & Powerful - Beware"
+description: "A blog post about a Ruby on Rails ActiveRelation function '#delete_all'. A fast way to purge your Date Base of rows from a Table."
 date: 2018-05-23T18:30:21-05:00
 draft: false
 img: 'trash.jpg'
+imgAlt: "A photo of an mesh office trash can, with some crumpled up papers inside."
 ---
 ## What You Will Learn
 - A fast way to delete a large batch of rows from a Database table
@@ -91,5 +93,3 @@ BUT WAIT!! If you were a good reader and saw the first WARNING above you will no
 First we remove the previous callback `dependent: :delete_all`, and replace it with `before_destroy` callback and pass in the new private method `#destroy_data_sets`.
 
 You will notice that `#in_batches` takes an option `:of` set to `1000`. This will limit the amount of records deleted in a single SQL transaction to 1,000.  Thus preventing the Database from locking.
-
-

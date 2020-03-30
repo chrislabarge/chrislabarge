@@ -1,8 +1,10 @@
 ---
 title: "Using Chrome Driver For Headless Scraping and Downloading"
+description: "A guide for configuring a headless javascript browser driver for RSpec integration tests."
 date: 2018-04-20T18:30:21-05:00
 draft: false
 img: 'headless.jpeg'
+imgAlt: "A photo of 'Headless' mannequins at a mens formal wear department store."
 ---
 ## What You Will Learn
 - How to use a non headless web driver on a headless server.

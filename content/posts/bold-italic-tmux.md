@@ -1,8 +1,15 @@
 ---
-title: "Bold + Italic in TMUX"
+title: "Bold + Italic Font in TMUX"
+description: "A Guide to get bold and italic font styles working Vim/NeoVim running within a TMUX session, from a GNOME terminal shell."
 date: 2020-03-28T18:30:21-05:00
 draft: false
 img: 'bold.png'
+imgAlt: "A Page screen shot of my local work environment showcasing Bold and Italic fonts"
+tags:
+ - Vim
+ - TMUX
+ - Coding
+ - Development Tools
 ---
 
 You have just installed a hip new font face for programming. 🤙
@@ -23,11 +30,11 @@ This guide will briefly outline the solutions I came across to get **bold** and
 *italic* font styles working Vim/NeoVim running within a TMUX session, from a
 GNOME terminal shell.
 
-  - -> **Bold**
-  - -> *Italic*
-  - -> VIM/NeoVIM
-  - -> TMUX
-  - -> GNOME Shell
+  -  **Bold**
+  -  *Italic*
+  -  VIM/NeoVIM
+  -  TMUX
+  -  GNOME Shell
 
 The Problem
 -----------
