@@ -46,7 +46,8 @@
 }
 
 .highlight {
-  padding: 10px 0 10px 0
+  padding: 10px 0 10px 0;
+  font-size: 15px;
 }
 
 .highlight pre {
@@ -109,6 +110,11 @@ body {
   padding-bottom: 40px;
 }
 
+.navbar a{
+  font-weight: bold;
+  padding: 0 10px;
+}
+
 .navbar a:hover{
   text-decoration: underline;
 }
@@ -155,11 +161,11 @@ body {
   background-color: #242729 !important;
 }
 
-a {
+a, .navbar a {
   color: #8be9fd !important;
 }
 
-.social-icons a, .navbar a, h1 a {
+.social-icons a, h1 a {
   color: white !important;
 }
 html.light {
@@ -171,18 +177,35 @@ html.light body {
   background-color: white !important;
 }
 
-html.light a {
+html.light a,
+html.light .navbar a {
   color: #a35dff !important;
 }
 
 html.light .social-icons a,
-html.light .navbar a,
 html.light h1 a,
 html.light .list-item a {
   color: black !important;
 }
 
 h1 { padding: 25px 0px 15px 0px }
+
+.blog-post h1 {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.blog-post-subheader {
+  margin-bottom: 40px;
+  color: #50fa7b;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+html.light .blog-post-subheader {
+  color: #5bd67a;
+}
+
 h2 { padding: 20px 0px 10px 0px }
 
 h3, h4, h5 {

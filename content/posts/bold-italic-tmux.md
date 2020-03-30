@@ -2,26 +2,47 @@
 title: "Bold + Italic in TMUX"
 date: 2020-03-28T18:30:21-05:00
 draft: false
-img: 'bold.jpg'
+img: 'bold.png'
 ---
 
-You just installed a sexy new font face for coding. 🤙
+You have just installed a hip new font face for programming. 🤙
 
-It has the all of the bells and whistles including `italics` and `bold` font styles. You configure your terminal to use the new font, and start typing away.
+It has the all of the bells and whistles including **bold** and *italic* font styles.
 
- ...WHAT??? Its not working.....🙄
+You configure your terminal to use the new font, and start typing away.
 
-Has this happened to you before? There is always some caveat when tweaking your work environment no matter how trivial.
+....**WHAT???**....
+
+Its not working....🙄
+
+**Has this happened to you before?**
+
+There is always some caveat when tweaking your work environment no matter how trivial.
+
+This guide will briefly outline the solutions I came across to get **bold** and
+*italic* font styles working Vim/NeoVim running within a TMUX session, from a
+GNOME terminal shell.
+
+  - -> **Bold**
+  - -> *Italic*
+  - -> VIM/NeoVIM
+  - -> TMUX
+  - -> GNOME Shell
 
 The Problem
 -----------
 
-The `bold` and `italic` font faces were not properly working in a Tmux session. But they __were__ working outside of Tmux in a gnome terminal.
+The **bold** and *italic* font faces were not properly working in a Tmux
+session. But they __were__ working outside of Tmux in a gnome terminal.
 
-I came across this [Tutorial](https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722) and it got me close to a solution. But there was issues.
+I came across this
+[Tutorial](https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722) and
+it got me close to a solution. But there was issues.
 
-
-- Step 3 in the [tutorial](https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722) did not work for me, so I had to rely on exporting the TERM env variable previous to running `tmux` command. (*Per the instructions*)
+- Step 3 in the
+  [tutorial](https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722)
+  did not work for me, so I had to rely on exporting the TERM env variable
+  previous to running `tmux` command. (*Per the instructions*)
 
 {{< highlight bash >}}
   env TERM=screen-256color tmux
@@ -33,13 +54,14 @@ I came across this [Tutorial](https://gist.github.com/gutoyr/4192af1aced7a1b555d
   having to explicitly set the `TERM` environment variable.
 
 {{< highlight bash >}}
-  alias tmux="env TERM=screen-256color tmux"`
+  alias tmux="env TERM=screen-256color tmux"
 {{< /highlight >}}
 
 Cursor Issues
 ------------------
 
-In NeoVim have the options to allow for `block` cursor shape when in `normal` mode and `line` shape when in `insert` mode.
+In Vim and NeoVim I have the options to allow for `block` cursor shape when in
+`normal` mode and `line` shape when in `insert` mode.
 
 {{< highlight vim >}}
   if &term =~ "screen."
@@ -58,12 +80,12 @@ In NeoVim have the options to allow for `block` cursor shape when in `normal` mo
 *This code is for displaying the desired cursor dependent on being in a remote
 session or not.*
 
-Unfortunately the font solution broke the cursor shape for Vim, running in Tmux.   The fix from above was only showing the
-`line` shape cursor.
+Unfortunately the font solution broke the cursor shape for Vim, running in
+Tmux.   The fix from above was only showing the `line` shape cursor.
 
 I found this solution from a neovim [ document ]( https://neovim.io/doc/user/term.html#tui-cursor-shape )
 
-Which instructed me to add a override to `~/.tmux.conf` file
+Which instructed me to add an override to `~/.tmux.conf` file
 
 {{< highlight bash >}}
   set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'

@@ -6,22 +6,37 @@ document.addEventListener("DOMContentLoaded", ()=> {
 function initTheme() {
   const urlParams = new URLSearchParams(window.location.search);
 
-  if (urlParams.get("theme") === "light") {
-    document.querySelector("html").classList.add("light")
-    document.querySelector("#light").style.display = "none"
-    document.querySelector("#dark").style.display = "inline-block"
-    appendThemeParamOnNav();
-  }
+  if (urlParams.get("theme") === "light") { toggleLightTheme() }
+
+  initThemeTogglers(urlParams)
 }
 
-function appendThemeParamOnNav() {
+function toggleLightTheme() {
+  document.querySelector("html").classList.add("light")
+  document.querySelector("#light").style.display = "none"
+  document.querySelector("#dark").style.display = "inline-block"
+
+  appendThemeParamOnPageLinks();
+}
+
+function initThemeTogglers(paramObject) {
+  document.querySelectorAll( ".toggle-theme" ).forEach((link) => {
+    if (link.id === "light") {
+      paramObject.set("theme", "light")
+    } else {
+      paramObject.set("theme", "dark")
+    }
+
+    link.href = window.location.pathname + "?" + paramObject.toString() + "#footer"
+  })
+}
+
+function appendThemeParamOnPageLinks() {
   window.addEventListener("click", (e) => {
     let url = e.target.getAttribute("href")
 
     if ( url ) {
-      params = getUrlParams(url)
-
-      let obj = new URLSearchParams(params);
+      let obj = new URLSearchParams(location.search);
 
       obj.set("theme", "light")
 
@@ -30,14 +45,4 @@ function appendThemeParamOnNav() {
       e.preventDefault();
     }
   })
-}
-
-function getUrlParams(string) {
-    let vars = {};
-
-    string.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        vars[key] = value;
-    });
-
-    return vars;
 }
