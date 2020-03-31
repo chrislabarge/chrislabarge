@@ -1,6 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", ()=> {
   initTheme();
+  initTaxonomyMenu();
 })
 
 function initTheme() {
@@ -9,6 +10,30 @@ function initTheme() {
   if (urlParams.get("theme") === "light") { toggleLightTheme() }
 
   initThemeTogglers(urlParams)
+}
+
+function initTaxonomyMenu() {
+  let menuItems = document.querySelectorAll(".taxonomy-options li a");
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      activateTaxonomyItem(item);
+    })
+  })
+}
+
+function activateTaxonomyItem(item) {
+  let listClass = item.dataset.listClass
+  let tax = document.querySelector(".taxonomy-options a.active")
+  let list = document.querySelector(".taxonomy-list.active")
+
+  if ( tax ) { tax.classList.remove("active") }
+  if ( list ) { list.classList.remove("active") }
+
+  item.classList.add("active")
+
+  document.querySelector(`.taxonomy-list.${listClass}`)
+    .classList.add("active")
 }
 
 function toggleLightTheme() {

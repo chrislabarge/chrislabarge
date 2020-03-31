@@ -5,6 +5,11 @@ date: 2017-02-27T18:30:21-05:00
 draft: false
 img: 'pi.jpg'
 imgAlt: "A photo of a Raspberry Pi micro computer."
+categories:
+ - Tutorial
+tags:
+ - raspberry-pi
+ - linux
 ---
 
 ## Overview

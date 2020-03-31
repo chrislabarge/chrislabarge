@@ -5,6 +5,10 @@ date: 2015-03-19 12:01:27
 draft: false
 img: 'code-new.jpg'
 imgAlt: "A old page screen shot of the Code Newbies website's landing page."
+categories:
+  - review
+tags:
+ - resource
 ---
 
 ## Overview

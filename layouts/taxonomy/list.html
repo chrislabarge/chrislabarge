@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+
+  {{ partial "taxmenu.html" . }}
+
+  <section id=content>
+    <ul class=posts_listing>
+      {{ range .Data.Pages }}
+        <div class="list-item">
+          <div class="date-time-title date">
+              <time>
+                {{ .Date.Format (.Site.Params.dateform | default "Jan 02 2006") }}
+              </time>
+          </div>
+          <div class="date-time-title post">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </div>
+        </div>
+      {{ end }}
+    </ul>
+  </section>
+
+{{ partial "footer.html" . }}

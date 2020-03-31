@@ -4,7 +4,10 @@ date:   2015-03-16 12:01:27
 img: "jake.jpg"
 imgAlt: "A photo of Jake Gyllenhaal from a scene in the movie Nightcrawler."
 description: "Nightcrawler movie review. First film I saw this year, and I could not have been more pleased."
-# keywords: "Nightcrawler, Dan Gilroy, Jake Gyllenhaal, Rene Russo, 2014"
+categories:
+  - review
+tags:
+ - movies
 ---
 
 ## Overview

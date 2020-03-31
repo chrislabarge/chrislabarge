@@ -5,7 +5,13 @@ date: 2018-05-23T18:30:21-05:00
 draft: false
 img: 'trash.jpg'
 imgAlt: "A photo of an mesh office trash can, with some crumpled up papers inside."
+categories:
+ - dev-tools
+tags:
+ - ruby-on-rails
+ - ruby
 ---
+
 ## What You Will Learn
 - A fast way to delete a large batch of rows from a Database table
 - How to prevent from locking your Database

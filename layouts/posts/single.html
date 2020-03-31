@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+{{ partial "taxmenu.html" . }}
+<section class="blog-post">
+    {{ if .Params.img }}
+    <img class="header-img" src="/img/{{ .Params.img }}" alt="{{ .Params.imgAlt | default .Site.Params.imgAlt }}" />
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+    <div class="blog-post-subheader">
+        {{ if .Params.date }}
+            <span class="date-title">
+                {{ .Date.Format (.Site.Params.dateform | default "January 2, 2006") }}
+            </span>
+        {{ end }}
+        {{ if .Params.site }}
+            <span class="website">
+                <a href="{{ .Params.site }}">{{ .Params.site }}</a>
+            </span>
+        {{ end }}
+    </div>
+    <div class="blog-post-content">
+        {{ .Content }}
+    </div>
+</section>
+
+{{ partial "footer.html" . }}

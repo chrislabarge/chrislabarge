@@ -14,9 +14,9 @@ I really love building new things with software, hardware, and/or construction.
 It is always great to work on projects with new people, so contact me if you
 would like to collaborate!
 
-Some **Tools** I use on a daily basis.
+#### Tools I use on a daily basis
 
- -  NeoVim
- -  TMUX
- -  Ruby on Rails
- -  Rspec
+ -  [NeoVim](https://neovim.io/)
+ -  [TMUX](https://github.com/tmux/tmux)
+ -  [Ruby on Rails](https://rubyonrails.org/)
+ -  [Rspec](https://rspec.info/)

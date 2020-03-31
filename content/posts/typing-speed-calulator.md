@@ -5,6 +5,10 @@ date: 2015-03-26 12:01:27
 draft: false
 img: 'WPM6.jpg'
 imgAlt: "A photo of the Words Per Minute Typing Calculator demo app's landing page."
+categories:
+  - tutorial
+tags:
+ - ruby
 ---
 
 ## Overview

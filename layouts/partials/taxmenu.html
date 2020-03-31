@@ -1,0 +1,30 @@
+{{ $tax := or (.Data.Plural) "categories" }}
+{{ $active := .Site.Params.activeTaxClass }}
+
+<nav>
+  <ul class="taxonomy-options">
+    {{ range $name, $taxonomy := .Site.Taxonomies }}
+      {{ $active := ( cond (eq $tax $name) $active "" ) }}
+      <li>
+        <a data-list-class="{{ $name }}"
+           class="clickable {{ $active }}">
+          {{ $name }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+
+  {{ range $name, $taxonomy := .Site.Taxonomies }}
+    {{ $active := ( cond (eq $tax $name) $active "" ) }}
+    <ul class ="taxonomy-list {{ $name }} {{ $active }}">
+      {{ range $key, $value := $taxonomy }}
+        <li>
+          <a href="/{{$name}}/{{ $key }}"
+             class="{{ cond (eq $key $.Data.Term) "active" ""}}">
+            {{ len $value.Pages }} {{ $key }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</nav>

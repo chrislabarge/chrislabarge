@@ -5,11 +5,12 @@ date: 2020-03-28T18:30:21-05:00
 draft: false
 img: 'bold.png'
 imgAlt: "A Page screen shot of my local work environment showcasing Bold and Italic fonts"
+categories:
+  - dev-tools
 tags:
- - Vim
- - TMUX
- - Coding
- - Development Tools
+ - vim
+ - tmux
+ - linux
 ---
 
 You have just installed a hip new font face for programming. 🤙
