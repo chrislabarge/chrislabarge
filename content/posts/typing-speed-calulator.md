@@ -39,13 +39,14 @@ We will cover how to:
 First we need to install the Volt framework:
 
 {{< highlight bash >}}
-	gem install volt
+gem install volt
 {{< /highlight >}}
 
 Once installed, create a new Volt project:
 
 {{< highlight bash >}}
 volt new typing-calculator
+
 cd typing-calculator
 {{< /highlight >}}
 
@@ -66,7 +67,7 @@ Fire up the Volt server which automatically pushes any changes you save to
 anyone viewing the page.
 
 {{< highlight bash >}}
-	bundle exec volt server
+bundle exec volt server
 {{< /highlight >}}
 
 Open your browser and type "http://localhost:3000/" in the address bar.  This
@@ -76,7 +77,7 @@ log in for this project so go ahead open the project in your favorite editor and
 locate the main.html file.
 
 {{< highlight bash >}}
-	app/main/views/main/main.html
+app/main/views/main/main.html
 {{< /highlight >}}
 
 And comment out the user templates
@@ -98,13 +99,12 @@ And comment out the user templates
 .
 .
 .
-
 {{< /highlight >}}
 
 You can also comment out the routes for signing in and logging in as well.
 
 {{< highlight bash >}}
-	app/main/config/routes.rb
+app/main/config/routes.rb
 {{< /highlight >}}
 
 {{< highlight ruby >}}
@@ -122,16 +122,13 @@ get '/', {}
 
 {{< /highlight >}}
 
-
-
 ## Reactive Form Input
 
 Locate the index.html file within views and add some content along with a form
 to get user input.
 
-
 {{< highlight bash >}}
-	app/main/views/main/index.html
+app/main/views/main/index.html
 {{< /highlight >}}
 
 
@@ -171,7 +168,7 @@ We will start by defining a function in the app controller that returns the
 text.
 
 {{< highlight bash >}}
-	app/main/controllers/main_controller.rb
+app/main/controllers/main_controller.rb
 {{< /highlight >}}
 
 {{< highlight ruby >}}
@@ -187,13 +184,13 @@ class MainController < Volt::ModelController
   def sample_text
    "In Volt, to simplify managing application state, all application state is kept in models that can optionally be persisted in different locations. By centralizing the application state, we reduce the amount of complex code needed to update a page. We can then build our page's html declaratively."
   end
-
+end
 {{< /highlight >}}
 
 Now add the newly defined method to the home-page
 
 {{< highlight bash >}}
-	app/main/views/main/index.html
+app/main/views/main/index.html
 {{< /highlight >}}
 
 {{< highlight html >}}
@@ -227,31 +224,31 @@ and put them into an array.
 Create two functions in the controller that handle this task.
 
 {{< highlight bash >}}
-	app/main/controllers/main_controller.rb
+app/main/controllers/main_controller.rb
 {{< /highlight >}}
 
 {{< highlight ruby >}}
 class MainController < Volt::ModelController
- .
- .
- .
- def sample_array
-   sample_text.split
- end
+  .
+  .
+  .
+  def sample_array
+    sample_text.split
+  end
 
- def user_array
-   page._user_string.split
- end
+  def user_array
+    page._user_string.split
+  end
+  .
+  .
+  .
 {{< /highlight >}}
-
-
-
 
 
 You can do this right on the home page for now in order to help you visualize.
 
 {{< highlight bash >}}
-	app/main/views/index.html
+app/main/views/index.html
 {{< /highlight >}}
 
 {{<  highlight html >}}
@@ -264,15 +261,13 @@ You can do this right on the home page for now in order to help you visualize.
 
 {{< /highlight >}}
 
-
 <img src="/img/WPM3.jpg" />
 
 Now we have to create a function that compares the two arrays, and gives us
 an array of user mistakes.
 
-
 {{< highlight bash >}}
-	app/main/controllers/main_controller.rb
+app/main/controllers/main_controller.rb
 {{< /highlight >}}
 
 {{< highlight ruby >}}
@@ -297,7 +292,7 @@ Add the 'mistakes_array' function to the home page to get an idea of what I am
 talking about.
 
 {{< highlight bash >}}
-	app/main/views/index.html
+app/main/views/index.html
 {{< /highlight >}}
 
 
@@ -317,10 +312,8 @@ We can use the mistakes_array to find the users accuracy. But before writing
 the accuracy method, we must create one the finds the total number of characters
 in an array.
 
-
-
 {{< highlight bash >}}
-	app/main/controllers/main_controller.rb
+app/main/controllers/main_controller.rb
 {{< /highlight >}}
 
 {{< highlight ruby >}}
@@ -344,58 +337,48 @@ when calculating a typing speed, a WORD is any "5 characters".  Lets create the
 function to find the number of words in the controller.
 
 {{< highlight bash >}}
-	app/main/controllers/main_controller.rb
+app/main/controllers/main_controller.rb
 {{< /highlight >}}
 
 {{< highlight ruby >}}
 def word_num
  character_length(user_array) / 5
 end
-
 {{< /highlight >}}
 
 Feel free to add your new "word_num" and "accuracy" functions to the the home
 page if you want to see them in action.
 
-
 {{< highlight bash >}}
-	app/main/views/index.html
+app/main/views/index.html
 {{< /highlight >}}
 
 
 {{<  highlight html >}}
-
 <p>{{word_num}}</p>
 <b>number of words</b>
 
 <p>{{accuracy}}</p>
 <b>accuracy</b>
-
 {{< /highlight >}}
-
 
 Now it's time to create the methods that will allow us to calculate how much
 time has passed.
 
 {{< highlight bash >}}
-	app/main/controllers/main_controller.rb
+app/main/controllers/main_controller.rb
 {{< /highlight >}}
 
 {{< highlight ruby >}}
-
 def time_elapsed
   if page._user_string.length == 1
     @start_time = Time.new
   elsif page._user_string.length == 0
     @start_time = 0
-  else
-   nil
   end
 
   minutes = (Time.now - @start_time).round / 60
-
 end
-
 {{< /highlight >}}
 
 The if-statement allows the timer to start only when the user starts typing.  The
@@ -408,7 +391,7 @@ of elapsed time in minutes.
 Now that we have the time, we can find the gross words per minute.
 
 {{< highlight bash >}}
-	app/main/controllers/main_controller.rb
+app/main/controllers/main_controller.rb
 {{< /highlight >}}
 
 {{< highlight ruby >}}
@@ -427,13 +410,12 @@ def net_wpm
 end
 {{< /highlight >}}
 
-
 Now that we have the net words per minute typed we can use that function in
 a bootstap progress bar.  This is one of several ways you can use reactive form
 input to control real time animation on your page.
 
 {{< highlight bash >}}
-	app/main/views/index.html
+app/main/views/index.html
 {{< /highlight >}}
 
 {{<  highlight html >}}
@@ -449,7 +431,6 @@ input to control real time animation on your page.
 
      <span class="sr-only">{{net_wpm}}%</span>
   </div>
-
 </div>
 .
 .

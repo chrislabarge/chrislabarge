@@ -8,7 +8,6 @@ imgAlt: "A photo of 'Headless' mannequins at a mens formal wear department store
 categories:
  - dev-tools
 tags:
- - rspec
  - ruby-on-rails
  - ruby
  - linux
@@ -56,34 +55,37 @@ There are some preferences and arguments you have to send/set in the Chrome Driv
 These will allow the browser to immediately download the file without having to accept the save_as prompt that ususally pops up.  You will also have to tell the driver what folder you would like the files to be downloaded to.
 
 {{< highlight ruby >}}
-  def driver_options
-    download_directory = './downloads/'
+def driver_options
+  download_directory = './downloads/'
 
-    { args: ['test-type', 'disable-extensions'],
-     prefs: { plugins: { always_open_pdf_externally: true  },
-             savefile: { default_directory: download_directory },
-             download: { prompt_for_download: false,
-                           default_directory: download_directory } } }
-  end
+  { args: ['test-type', 'disable-extensions'],
+    prefs: {
+      plugins: { always_open_pdf_externally: true },
+      savefile: { default_directory: download_directory },
+      download: { prompt_for_download: false,
+                  default_directory: download_directory }
+    }
+  }
+end
 {{< /highlight >}}
 
 Above I have wrapped the options within a ruby function.  I will call this function when passing the parameter option [:chromeOptions] to the #chrome method for  Remote::Capabilities. This takes place below when registering the driver with Capybara.
 
 {{< highlight ruby >}}
-  Capybara.register_driver :chrome do |app|
-    capabilities = Selenium::
-                   WebDriver::
-                   Remote::
-                   Capabilities.chrome(chromeOptions: driver_options)
+Capybara.register_driver :chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::
+    Capabilities.chrome(
+      chromeOptions: driver_options
+    )
 
-    Capybara::
-    Selenium::
-    Driver.new app, browser: :chrome,
-                    desired_capabilities: capabilities
-  end
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    desired_capabilities: capabilities
+  )
+end
 
-  Capybara.ignore_hidden_elements = false
-
+Capybara.ignore_hidden_elements = false
 {{< /highlight >}}
 
 The hash from the function #driver_options() gets parsed by the Selenium Library and then passed to the chrome driver.
@@ -93,7 +95,7 @@ If you want to see a complete list of options that you can pass to the chrome dr
 Now when I  run the scraper locally using ...
 
 {{< highlight bash >}}
-  bundle exec rake scrape_pdfs
+bundle exec rake scrape_pdfs
 {{< /highlight >}}
 
 The chrome browser window pops up and runs through the list of the Capybara session commands, navigating to the download link, and then clicking the link.  This is where the driver options come to play and automatically save the file to the proper directory.
@@ -107,7 +109,7 @@ Well that is where  Xvfb comes it.  It creates a virtual monitor and allows you 
 As long as Xvfb is properly installed all you need to do is pass the command that kicks off your Capybara Session to the "xvfb-run" command.
 
 {{< highlight bash >}}
-  xvfb-run bundle exec rake scrape_pdfs
+xvfb-run bundle exec rake scrape_pdfs
 {{< /highlight >}}
 
 I can no longer watch the scrape occur on my monitor, but after the program is done running, I can verify it worked by finding a freshly downloaded pdf in my "./downloads" folder.
@@ -119,5 +121,5 @@ And there you have it a simple way to run non headless Chrome Driver session in 
 The default screen size for the "xfvb-run" command is fairly small.  So if you are interacting with a responsive website and need you change the virtual screen dimensions run the command like so...
 
 {{< highlight bash >}}
-  xvfb-run --server-args='-screen 0 1024x768x24' bundle exec rake scrape_pdfs
+xvfb-run --server-args='-screen 0 1024x768x24' bundle exec rake scrape_pdfs
 {{< /highlight >}}

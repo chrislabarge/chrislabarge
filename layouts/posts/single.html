@@ -12,6 +12,10 @@
                 {{ .Date.Format (.Site.Params.dateform | default "January 2, 2006") }}
             </span>
         {{ end }}
+        <a href="/posts/index.xml" class="tooltip">
+            <span class="tooltip-text">RSS Feed</span>
+            <i class="fas fa-rss"></i>
+        </a>
         {{ if .Params.site }}
             <span class="website">
                 <a href="{{ .Params.site }}">{{ .Params.site }}</a>

@@ -9,7 +9,6 @@ categories:
   - dev-tools
 tags:
  - vim
- - tmux
  - linux
 ---
 
@@ -53,7 +52,7 @@ it got me close to a solution. But there was issues.
   previous to running `tmux` command. (*Per the instructions*)
 
 {{< highlight bash >}}
-  env TERM=screen-256color tmux
+env TERM=screen-256color tmux
 {{< /highlight >}}
 
 - This worked for me. The `bold` and `italic` fonts are now working within Tmux.
@@ -62,7 +61,7 @@ it got me close to a solution. But there was issues.
   having to explicitly set the `TERM` environment variable.
 
 {{< highlight bash >}}
-  alias tmux="env TERM=screen-256color tmux"
+alias tmux="env TERM=screen-256color tmux"
 {{< /highlight >}}
 
 Cursor Issues
@@ -72,17 +71,17 @@ In Vim and NeoVim I have the options to allow for `block` cursor shape when in
 `normal` mode and `line` shape when in `insert` mode.
 
 {{< highlight vim >}}
-  if &term =~ "screen."
-     let &t_ti.="\eP\e[1 q\e\\"
-     let &t_SI.="\eP\e[5 q\e\\"
-     let &t_EI.="\eP\e[1 q\e\\"
-     let &t_te.="\eP\e[0 q\e\\"
-  else
-     let &t_ti.="\<Esc>[1 q"
-     let &t_SI.="\<Esc>[5 q"
-     let &t_EI.="\<Esc>[1 q"
-     let &t_te.="\<Esc>[0 q"
-  endif
+if &term =~ "screen."
+   let &t_ti.="\eP\e[1 q\e\\"
+   let &t_SI.="\eP\e[5 q\e\\"
+   let &t_EI.="\eP\e[1 q\e\\"
+   let &t_te.="\eP\e[0 q\e\\"
+else
+   let &t_ti.="\<Esc>[1 q"
+   let &t_SI.="\<Esc>[5 q"
+   let &t_EI.="\<Esc>[1 q"
+   let &t_te.="\<Esc>[0 q"
+endif
 {{< /highlight >}}
 
 *This code is for displaying the desired cursor dependent on being in a remote
@@ -96,5 +95,5 @@ I found this solution from a neovim [ document ]( https://neovim.io/doc/user/ter
 Which instructed me to add an override to `~/.tmux.conf` file
 
 {{< highlight bash >}}
-  set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
 {{< /highlight >}}

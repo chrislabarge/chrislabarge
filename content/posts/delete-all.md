@@ -35,17 +35,17 @@ When a User imports/uploads new data into the application it creates a new `Data
 I have the model `DataSet` which has a `belongs_to` relationship to `DataUploads`.
 
 {{< highlight ruby >}}
-  class DataSet < ApplicationRecord
-    belongs_to :data_uploads
-  end
+class DataSet < ApplicationRecord
+  belongs_to :data_uploads
+end
 {{< /highlight >}}
 
 I have the model `DataUploads` which has a `has_many` relationship to `DataSets`.
 
 {{< highlight ruby >}}
-  class DataUpload < ApplicationRecord
-    has_many :data_sets, dependent: :destroy
-  end
+class DataUpload < ApplicationRecord
+  has_many :data_sets, dependent: :destroy
+end
 {{< /highlight >}}
 
 Notice the `dependent: :destroy`.  This means that when a `DataUpload` model gets deleted/destroyed, all of the associated `DataSet` models will all get destroyed as well.
@@ -57,11 +57,10 @@ The way we solve this is to use the `ActiveRecord::Relation#delete_all`. This [m
 *Look at the example below.*
 
 {{< highlight ruby >}}
-  # Remove the data sets of the last Data Upload instance
-  upload = DataUpload.last
-  data_sets = upload.data_sets
+upload = DataUpload.last
+data_sets = upload.data_sets
 
-  data_sets.delete_all
+data_sets.delete_all
 {{< /highlight >}}
 
 ### WARNING
@@ -72,9 +71,9 @@ The way we solve this is to use the `ActiveRecord::Relation#delete_all`. This [m
 Now we can implement the method in the in the `DataUpload` callback.
 
 {{< highlight ruby >}}
-  class DataUpload < ApplicationRecord
-    has_many :data_sets, dependent: :delete_all
-  end
+class DataUpload < ApplicationRecord
+  has_many :data_sets, dependent: :delete_all
+end
 {{< /highlight >}}
 
 
@@ -83,17 +82,17 @@ BUT WAIT!! If you were a good reader and saw the first WARNING above you will no
 *If you are not use a Rails version that is >= 5.0 then check out the gem [delete_in_batches](https://github.com/ankane/delete_in_batches)*
 
 {{< highlight ruby >}}
-  class DataUpload < ApplicationRecord
-    has_many :data_sets
+class DataUpload < ApplicationRecord
+  has_many :data_sets
 
-    before_destroy :destroy_data_sets
+  before_destroy :destroy_data_sets
 
-    private
+  private
 
-    def destroy_data_sets
-      data_sets.in_batches(of: 1000).delete_all
-    end
+  def destroy_data_sets
+    data_sets.in_batches(of: 1000).delete_all
   end
+end
 {{< /highlight >}}
 
 First we remove the previous callback `dependent: :delete_all`, and replace it with `before_destroy` callback and pass in the new private method `#destroy_data_sets`.

@@ -1,7 +1,7 @@
 {{ $tax := or (.Data.Plural) "categories" }}
 {{ $active := .Site.Params.activeTaxClass }}
 
-<nav>
+<nav class="taxonomy">
   <ul class="taxonomy-options">
     {{ range $name, $taxonomy := .Site.Taxonomies }}
       {{ $active := ( cond (eq $tax $name) $active "" ) }}
@@ -17,11 +17,12 @@
   {{ range $name, $taxonomy := .Site.Taxonomies }}
     {{ $active := ( cond (eq $tax $name) $active "" ) }}
     <ul class ="taxonomy-list {{ $name }} {{ $active }}">
-      {{ range $key, $value := $taxonomy }}
+      {{ range $taxonomy.ByCount }}
         <li>
-          <a href="/{{$name}}/{{ $key }}"
-             class="{{ cond (eq $key $.Data.Term) "active" ""}}">
-            {{ len $value.Pages }} {{ $key }}
+          <a href="{{ .Page.Permalink }}"
+             class="{{ cond (eq .Page.Title $.Data.Term) "active" ""}}">
+             {{ .Page.Title }}
+            <span class="float-right">{{ .Count }}</span>
           </a>
         </li>
       {{ end }}

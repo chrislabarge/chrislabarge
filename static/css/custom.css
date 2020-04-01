@@ -14,8 +14,11 @@ h1 {
   padding: 25px 0px 15px 0px;
 }
 
-
 h2 { padding: 20px 0px 10px 0px }
+
+.float-right {
+  float: right;
+}
 
 .clickable:hover {
   cursor: pointer;
@@ -106,20 +109,40 @@ ul.taxonomy-list li a {
   color: #000;
   padding: 8px 16px;
   text-decoration: none;
-  width: 150px;
+  width: 140px;
 }
 
 ul.taxonomy-list li a.active,
 ul.taxonomy-options li a.active  {
   font-weight: bold;
-  color: white !important;
+  color: white;
+}
+
+html.light ul.taxonomy-list li a.active,
+html.light ul.taxonomy-options li a.active  {
+  color: #a35dff !important;
+}
+
+html.light nav.taxonomy a {
+  color: black !important;
+}
+
+html.light ul.taxonomy-options li a.active  {
+  background-color: #c1b2b269;
+}
+
+
+html.light nav ul li a:hover {
+  background-color: #c1b2b299;
 }
 
 ul.taxonomy-options li a.active  {
-  background-color: #333;
+  background-color: #6b68684a;
+
 }
+
 nav ul li a:hover {
-  background-color: #555;
+  background-color: #6b686885;
   color: white;
 }
 
@@ -150,8 +173,10 @@ nav ul li a:hover {
 .highlight pre {
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
   border-radius: 8px;
+  line-height: 1.6;
 }
 
 .contact-options {
@@ -186,8 +211,7 @@ nav ul li a:hover {
 
 .social-icons svg:hover,
 .list-item:hover,
-.navbar li div:hover,
-#page-title:hover {
+.navbar li div:hover {
   transform: scale(1.2);
 }
 
