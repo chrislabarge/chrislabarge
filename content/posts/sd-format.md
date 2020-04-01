@@ -6,7 +6,7 @@ draft: false
 img: 'pi.jpg'
 imgAlt: "A photo of a Raspberry Pi micro computer."
 categories:
- - Tutorial
+ - tutorial
 tags:
  - raspberry-pi
  - linux
