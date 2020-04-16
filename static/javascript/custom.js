@@ -1,7 +1,8 @@
 
-document.addEventListener("DOMContentLoaded", ()=> {
+document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initTaxonomyMenu();
+  initShowFilesOnly();
 })
 
 function initTheme() {
@@ -68,6 +69,29 @@ function appendThemeParamOnPageLinks() {
       location.href = url + "?" + obj.toString();
 
       e.preventDefault();
+    }
+  })
+}
+
+function  initShowFilesOnly() {
+  if (window.location.hash == "#files") {
+    showFilesOnly();
+  } else {
+    document.querySelector("#quickView").addEventListener("click", () => {
+      showFilesOnly();
+    })
+  }
+}
+
+function showFilesOnly() {
+  document.querySelector("#quickView").style.display = "none";
+  document.querySelector("#normalView").style.display = "inline-block";
+  document.querySelector(".blog-post-content").classList.add("files-only")
+
+  document.querySelectorAll(".snippet-heading").forEach((heading) => {
+    if (!heading.classList.contains("no-file-only")) {
+      heading.classList.add("visible")
+      heading.nextSibling.nextSibling.classList.add("visible")
     }
   })
 }

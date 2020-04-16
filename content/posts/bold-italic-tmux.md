@@ -44,7 +44,7 @@ session. But they __were__ working outside of Tmux in a gnome terminal.
 
 I came across this
 [Tutorial](https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722) and
-it got me close to a solution. But there was issues.
+it got me close to a solution. But there were issues.
 
 - Step 3 in the
   [tutorial](https://gist.github.com/gutoyr/4192af1aced7a1b555df06bd3781a722)

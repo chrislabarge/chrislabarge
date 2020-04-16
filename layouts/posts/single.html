@@ -21,6 +21,18 @@
                 <a href="{{ .Params.site }}">{{ .Params.site }}</a>
             </span>
         {{ end }}
+        {{ if .Params.filesOnly }}
+          <span id="onlyFiles">
+            <a href="#files" class="tooltip" id="quickView">
+              <span class="tooltip-text">Only Files</span>
+              Quick View
+            </a>
+            <a href="{{ .Permalink }}" class="tooltip" style="display: none" id="normalView" >
+              <span class="tooltip-text">Entire Post</span>
+              Normal View
+            </a>
+          </span>
+        {{ end }}
     </div>
     <div class="blog-post-content">
         {{ .Content }}
