@@ -2,10 +2,12 @@
 title:  "Nightcrawler - Movie Review"
 date:   2015-03-16 12:01:27
 img: "jake.jpg"
-# description: "Nightcrawler movie review. First film I saw this year, and I couldn't
-# have been more pleased."
-# keywords: "Nightcrawler, Dan Gilroy, Jake Gyllenhaal, Rene Russo, 2014"
-
+imgAlt: "A photo of Jake Gyllenhaal from a scene in the movie Nightcrawler."
+description: "Nightcrawler movie review. First film I saw this year, and I could not have been more pleased."
+categories:
+  - review
+tags:
+ - movies
 ---
 
 ## Overview
@@ -14,18 +16,16 @@ This [Dan Gilroy](http://www.imdb.com/name/nm0319659/) film (director and writer
  starring [Jake Gyllenhaal](http://www.imdb.com/name/nm0350453/) was the
 the first film I saw this year, and I couldn't have been more pleased.
 
-
-
 Not only is the acting, music and cinematography top notch but it gives an extraordinarly
 intimate view local news media. Which in my opinion is a very fascinating subject
-given thats almost everyone consumes. If you are familiar with the teleivision show [The Wire](http://en.wikipedia.org/wiki/The_Wire) ,
-each season examines a different part of the city of Batlimore.  My favorite,
+given thats almost everyone consumes. If you are familiar with the television show [The Wire](http://en.wikipedia.org/wiki/The_Wire) ,
+each season examines a different part of the city of Baltimore.  My favorite,
 season 5  which focus's on the local newspaper, in particular,
 which articles made it to print.
 
 This film follows that season's same type of news transparency but instead, on
 the ground floor of a  Los Angeles tv newsroom.  As Wire fans might have guessed, it is
-all about ratings, bottom line. Morals and integraty gets thrown out the window
+all about ratings, bottom line. Morals and integrity gets thrown out the window
 when it all boils down to numbers.
 
 ## Main Character

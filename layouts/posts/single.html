@@ -1,5 +1,6 @@
 {{ partial "header.html" . }}
 
+{{ partial "taxmenu.html" . }}
 <section class="blog-post">
     {{ if .Params.img }}
     <img class="header-img" src="/img/{{ .Params.img }}" alt="{{ .Params.imgAlt | default .Site.Params.imgAlt }}" />
@@ -11,10 +12,26 @@
                 {{ .Date.Format (.Site.Params.dateform | default "January 2, 2006") }}
             </span>
         {{ end }}
+        <a href="/posts/index.xml" class="tooltip">
+            <span class="tooltip-text">RSS Feed</span>
+            <i class="fas fa-rss"></i>
+        </a>
         {{ if .Params.site }}
             <span class="website">
                 <a href="{{ .Params.site }}">{{ .Params.site }}</a>
             </span>
+        {{ end }}
+        {{ if .Params.filesOnly }}
+          <span id="onlyFiles">
+            <a href="#files" class="tooltip" id="quickView">
+              <span class="tooltip-text">Only Files</span>
+              Quick View
+            </a>
+            <a href="{{ .Permalink }}" class="tooltip" style="display: none" id="normalView" >
+              <span class="tooltip-text">Entire Post</span>
+              Normal View
+            </a>
+          </span>
         {{ end }}
     </div>
     <div class="blog-post-content">
