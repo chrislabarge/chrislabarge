@@ -69,7 +69,7 @@ These will be updated by the Color Picker. The columns can currently be updated 
 
 ![](/img/standard.gif)
 
-Pretty standard stuff. Now lets get the Color Picker library installed.
+Pretty standard stuff, now lets get the Color Picker library installed.
 
 Install with Yarn & Webpacker
 -----------------------
@@ -173,7 +173,7 @@ static targets = ["picker", "input"]
 
    This Is the HTML form input we will fill after a color has been selected/picked.
 
-We use the `initialize()` stimulus lifecycle function
+We use the `initialize()` stimulus lifecycle function:
 
 ```javascript
 initialize() {
@@ -181,7 +181,7 @@ initialize() {
 }
 ```
 
-to call `this.initPicker()` which contains all of the logic to intialize the Pickr component.
+To call `this.initPicker()` which contains all of the logic to intialize the Pickr component.
 
 We set an instance of the Pickr class to `this.picker` in order to use in the callback.
 
@@ -202,11 +202,11 @@ default: this.inputTarget.value,
 
 This uses the controller's `this.pickerTarget` to set the picker element, and the value of `this.inputTarget` to initialize the Picker with.
 
-We then use the on `save` Pickr callback in order to
-- set the input field's value
-- hide the widget
+We then use the on `save` Pickr callback in order to:
+- Set the input field's value
+- Hide the widget
 
-after a user has clicked "Save" on the Color Picker.
+After a user has clicked "Save" on the Color Picker.
 
 
 ```javascript

@@ -1,4 +1,4 @@
-baseURL = "http://chrislabarge.com/"
+baseURL = "https://chrislabarge.com/"
 languageCode = "en-us"
 title = "Chris LaBarge - Software Developer - Portfolio"
 theme = "elephants"
