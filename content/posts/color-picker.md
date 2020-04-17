@@ -1,6 +1,6 @@
 ---
 title: "Color Picker with Ruby on Rails 6, Stimulus and Webpacker"
-description: "A tutorial to integrate a Javascript color picker library Pickr, with Rails on Rails 6.0, StimulusJS, and Webpacker."
+description: "A tutorial to integrate a Javascript color picker library Pickr, with Ruby on Rails 6.0, StimulusJS, and Webpacker."
 date: 2020-04-12T18:30:21-05:00
 draft: false
 img: 'color-picker.jpg'
@@ -28,7 +28,7 @@ tags:
 Set Up
 ----------------------
 
-This tutorial assumes that your have a Rails application with webpacker and stimulus installed (*along with some familiarity using each*).
+This tutorial assumes that you have a Rails application with webpacker and stimulus installed (*along with some familiarity using each*).
 
 If you are using Rails >= 6.0 version, you can generate the application with the following command.
 
@@ -151,7 +151,7 @@ export default class extends Controller {
 }
 ```
 
-We load the `Picker` class from the node module at the top of the stimulus controller file along with the stylesheet.
+We load the `Pickr` class from the node module at the top of the stimulus controller file along with the stylesheet.
 
 **NOTE:** Do NOT load the stylesheet if already imported in `app/javascript/packs/application.js`
 ```javascript
