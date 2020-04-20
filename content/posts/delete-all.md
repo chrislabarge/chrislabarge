@@ -1,6 +1,6 @@
 ---
-title: "Rails ActiveRecord::Relation#delete_all - Fast & Powerful - Beware"
-description: "A blog post about a Ruby on Rails ActiveRecord::Relation function '#delete_all'. A fast way to purge your Date Base of rows from a Table."
+title: "How to use Rails the Active Record Relation method #delete_all"
+description: "A quick overview of a Ruby on Rails ActiveRecord::Relation method '#delete_all'. A fast way to purge your Date Base of rows from a Table."
 date: 2018-05-23T18:30:21-05:00
 dateMod: 2023-04-17T13:00:21-05:00
 draft: false
@@ -27,15 +27,20 @@ tags:
 
 ## Overview
 
-I am currently working on a Rails project that deals with importing and exporting large amounts of data.  The user is able to import and store data into the applications Database as well and delete the data.
+I am currently working on a Rails project that deals with importing and
+exporting large amounts of data from excel sheets.  The user is able to import
+and save the data into the application's Database and also delete the data.
 
-Because some of these data deletions can consist of thousands of rows, the removal process must be developed a little differently.
+Because some of these deletions can consist of hundreds of thousands of rows, the
+removal feature must be developed a little differently.
 
 ## Setup
 
-When a User imports/uploads new data into the application it creates a new `DataUplodad` table row.  The application also creates a new `DataSet` table row, for every single data set from the import.
+When a User imports/uploads new data into the application, a`DataUpload` record
+is created, along with a new `DataSet` record, for every single row from the
+imported exec sheet.
 
-I have the model `DataSet` which has a `belongs_to` relationship to `DataUpload`.
+The model `DataSet` has a `belongs_to` relationship to `DataUpload`.
 
 #### app/models/data_set.rb {.snippet-heading}
 {{< highlight ruby >}}
@@ -44,7 +49,7 @@ class DataSet < ApplicationRecord
 end
 {{< /highlight >}}
 
-I have the model `DataUpload` which has a `has_many` relationship to `DataSet`.
+The model `DataUpload` has a `has_many` relationship to `DataSet`.
 
 #### app/models/data_upload.rb {.snippet-heading}
 {{< highlight ruby >}}
@@ -53,11 +58,18 @@ class DataUpload < ApplicationRecord
 end
 {{< /highlight >}}
 
-Notice the `dependent: :destroy`.  This means that when a `DataUpload` instance gets deleted/destroyed, all of the associated `DataSet` instances will be destroyed as well.
+Notice the `dependent: :destroy`.  This means that when a `DataUpload` record
+gets deleted/destroyed, all of the associated `DataSet` records will be
+destroyed as well.
 
-This also loads every associated `DataSet` model instance into memory as well.  This will bog down the server if there is a very large association of thousands of `DataSet` records.
+This also loads every associated `DataSet` model instance into memory as well.
+This will bog down the server if there is a very large association of thousands
+of `DataSet` records.
 
-The way we solve this is to use the `ActiveRecord::Relation#delete_all`. This [method](https://apidock.com/rails/ActiveRecord/Relation/delete_all) performs a single SQL statement and efficiently deletes all of the records within the Relation.
+The way we solve this is to use the `ActiveRecord::Relation#delete_all`. This
+[method](https://apidock.com/rails/ActiveRecord/Relation/delete_all) performs a
+single SQL statement and efficiently deletes all of the records within the
+Relation.
 
 *Look at the example below.*
 
@@ -82,7 +94,13 @@ end
 {{< /highlight >}}
 
 
-**BUT WAIT!!** If you were a good reader and saw the first WARNING above you will notice that if I left the code this way and a particular `DataUpload` instance had an association of more then 5,000 `DataSet` records... the Database will lock for the entire transaction. To prevent from this we must utilize one of the Ruby on Rails 5.0 [methods](http://api.rubyonrails.org/classes/ActiveRecord/Batches.html#method-i-in_batches) `#in_batches`
+**BUT WAIT!!** If you were a good reader and saw the first WARNING above you
+will notice that if I left the code this way and a particular `DataUpload`
+instance had an association of more then 5,000 `DataSet` records... the
+Database will lock for the entire transaction. To prevent from this we must
+utilize one of the Ruby on Rails 5.0
+[methods](http://api.rubyonrails.org/classes/ActiveRecord/Batches.html#method-i-in_batches)
+`#in_batches`
 
 *If you are not use a Rails version that is >= 5.0 then check out the gem [delete_in_batches](https://github.com/ankane/delete_in_batches)*
 
@@ -101,6 +119,10 @@ class DataUpload < ApplicationRecord
 end
 {{< /highlight >}}
 
-First we remove the previous callback `dependent: :delete_all`, and replace it with `before_destroy` callback and pass in the new private method `#destroy_data_sets`.
+First we remove the previous callback `dependent: :delete_all`, and replace it
+with `before_destroy` callback and pass in the new private method
+`#destroy_data_sets`.
 
-You will notice that `#in_batches` takes an option `:of` set to `1000`. This will limit the amount of records deleted in a single SQL transaction to 1,000.  Thus preventing the Database from locking.
+You will notice that `#in_batches` takes an option `:of` set to `1000`. This
+will limit the amount of records deleted in a single SQL transaction to 1,000.
+Thus preventing the Database from locking.
