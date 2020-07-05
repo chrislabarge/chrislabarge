@@ -77,9 +77,14 @@ function  initShowFilesOnly() {
   if (window.location.hash == "#files") {
     showFilesOnly();
   } else {
-    document.querySelector("#quickView").addEventListener("click", () => {
-      showFilesOnly();
-    })
+
+    const el = document.querySelector("#quickView")
+
+    if (el) {
+      el.addEventListener("click", () => {
+        showFilesOnly();
+      });
+    }
   }
 }
 

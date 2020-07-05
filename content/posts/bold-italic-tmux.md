@@ -2,6 +2,7 @@
 title: "Bold + Italic Font in TMUX"
 description: "A Guide to get bold and italic font styles working Vim/NeoVim running within a TMUX session, from a GNOME terminal shell."
 date: 2020-03-28T18:30:21-05:00
+dateMod: 2020-04-17T14:30:21-05:00
 draft: false
 img: 'bold.png'
 imgAlt: "A Page screen shot of my local work environment showcasing Bold and Italic fonts"
@@ -12,15 +13,11 @@ tags:
  - linux
 ---
 
-You have just installed a hip new font face for programming. 🤙
-
-It has the all of the bells and whistles including **bold** and *italic* font styles.
+You have just installed a hip new font face for programming. It has the all of the bells and whistles including **bold** and *italic* font styles. 🤙
 
 You configure your terminal to use the new font, and start typing away.
 
-....**WHAT???**....
-
-Its not working....🙄
+....**WHAT???**....Its not working....🙄
 
 **Has this happened to you before?**
 
@@ -30,11 +27,9 @@ This guide will briefly outline the solutions I came across to get **bold** and
 *italic* font styles working Vim/NeoVim running within a TMUX session, from a
 GNOME terminal shell.
 
-  -  **Bold**
-  -  *Italic*
-  -  VIM/NeoVIM
-  -  TMUX
-  -  GNOME Shell
+  -  [VIM/NeoVIM](https://neovim.io/)
+  -  [TMUX](https://github.com/tmux/tmux)
+  -  [GNOME Terminal](https://en.wikipedia.org/wiki/GNOME_Terminal)
 
 The Problem
 -----------
@@ -60,6 +55,7 @@ env TERM=screen-256color tmux
 - Add this to the `.zhrc` configuration file to make an alias to prevent from
   having to explicitly set the `TERM` environment variable.
 
+#### ~/.zhrc {.snippet-heading}
 {{< highlight bash >}}
 alias tmux="env TERM=screen-256color tmux"
 {{< /highlight >}}
@@ -70,6 +66,7 @@ Cursor Issues
 In Vim and NeoVim I have the options to allow for `block` cursor shape when in
 `normal` mode and `line` shape when in `insert` mode.
 
+#### ~/.config/nvim/init.vim {.snippet-heading}
 {{< highlight vim >}}
 if &term =~ "screen."
    let &t_ti.="\eP\e[1 q\e\\"
@@ -94,6 +91,7 @@ I found this solution from a neovim [ document ]( https://neovim.io/doc/user/ter
 
 Which instructed me to add an override to `~/.tmux.conf` file
 
+#### ~/.tmux.conf {.snippet-heading}
 {{< highlight bash >}}
 set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
 {{< /highlight >}}

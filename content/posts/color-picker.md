@@ -1,6 +1,6 @@
 ---
 title: "Color Picker with Ruby on Rails 6, Stimulus and Webpacker"
-description: "A tutorial to integrate a Javascript color picker library Pickr, with Rails on Rails 6.0, StimulusJS, and Webpacker."
+description: "A tutorial to integrate a Javascript color picker library Pickr, with Ruby on Rails 6.0, StimulusJS, and Webpacker."
 date: 2020-04-12T18:30:21-05:00
 draft: false
 img: 'color-picker.jpg'
@@ -28,7 +28,7 @@ tags:
 Set Up
 ----------------------
 
-This tutorial assumes that your have a Rails application with webpacker and stimulus installed (*along with some familiarity using each*).
+This tutorial assumes that you have a Rails application with webpacker and stimulus installed (*along with some familiarity using each*).
 
 If you are using Rails >= 6.0 version, you can generate the application with the following command.
 
@@ -69,7 +69,7 @@ These will be updated by the Color Picker. The columns can currently be updated 
 
 ![](/img/standard.gif)
 
-Pretty standard stuff. Now lets get the Color Picker library installed.
+Pretty standard stuff, now lets get the Color Picker library installed.
 
 Install with Yarn & Webpacker
 -----------------------
@@ -105,7 +105,7 @@ form .field .pickr {
 Stimulus Integration
 ------------------------------------
 
-#### app/javascript/controller/color-picker.js  {.snippet-heading}
+#### app/javascript/controllers/color_picker_controller.js  {.snippet-heading}
 ```javascript
 import { Controller } from "stimulus";
 import Pickr from "@simonwep/pickr";
@@ -151,7 +151,7 @@ export default class extends Controller {
 }
 ```
 
-We load the `Picker` class from the node module at the top of the stimulus controller file along with the stylesheet.
+We load the `Pickr` class from the node module at the top of the stimulus controller file along with the stylesheet.
 
 **NOTE:** Do NOT load the stylesheet if already imported in `app/javascript/packs/application.js`
 ```javascript
@@ -173,7 +173,7 @@ static targets = ["picker", "input"]
 
    This Is the HTML form input we will fill after a color has been selected/picked.
 
-We use the `initialize()` stimulus lifecycle function
+We use the `initialize()` stimulus lifecycle function:
 
 ```javascript
 initialize() {
@@ -181,7 +181,7 @@ initialize() {
 }
 ```
 
-to call `this.initPicker()` which contains all of the logic to intialize the Pickr component.
+To call `this.initPicker()` which contains all of the logic to intialize the Pickr component.
 
 We set an instance of the Pickr class to `this.picker` in order to use in the callback.
 
@@ -202,11 +202,11 @@ default: this.inputTarget.value,
 
 This uses the controller's `this.pickerTarget` to set the picker element, and the value of `this.inputTarget` to initialize the Picker with.
 
-We then use the on `save` Pickr callback in order to
-- set the input field's value
-- hide the widget
+We then use the on `save` Pickr callback in order to:
+- Set the input field's value
+- Hide the widget
 
-after a user has clicked "Save" on the Color Picker.
+After a user has clicked "Save" on the Color Picker.
 
 
 ```javascript

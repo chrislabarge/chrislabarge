@@ -2,9 +2,11 @@
 title: "Using Chrome Driver For Headless Scraping and Downloading"
 description: "A guide for configuring a headless javascript browser driver for RSpec integration tests."
 date: 2018-04-20T18:30:21-05:00
+dateMod: 2020-04-17T14:30:21-05:00
 draft: false
 img: 'headless.jpeg'
 imgAlt: "A photo of 'Headless' mannequins at a mens formal wear department store."
+filesOnly: true
 categories:
  - dev-tools
 tags:
@@ -54,6 +56,7 @@ Download and extract the Chrome Driver from the [ Download Link ](https://sites.
 There are some preferences and arguments you have to send/set in the Chrome Driver to be able to download files from the browser.
 These will allow the browser to immediately download the file without having to accept the save_as prompt that ususally pops up.  You will also have to tell the driver what folder you would like the files to be downloaded to.
 
+#### config or initializer file{.snippet-heading}
 {{< highlight ruby >}}
 def driver_options
   download_directory = './downloads/'
@@ -71,6 +74,7 @@ end
 
 Above I have wrapped the options within a ruby function.  I will call this function when passing the parameter option [:chromeOptions] to the #chrome method for  Remote::Capabilities. This takes place below when registering the driver with Capybara.
 
+#### config or initializer file{.snippet-heading}
 {{< highlight ruby >}}
 Capybara.register_driver :chrome do |app|
   capabilities = Selenium::WebDriver::Remote::
@@ -94,6 +98,7 @@ If you want to see a complete list of options that you can pass to the chrome dr
 
 Now when I  run the scraper locally using ...
 
+#### Command Line{.snippet-heading}
 {{< highlight bash >}}
 bundle exec rake scrape_pdfs
 {{< /highlight >}}
@@ -108,6 +113,7 @@ Well that is where  Xvfb comes it.  It creates a virtual monitor and allows you 
 
 As long as Xvfb is properly installed all you need to do is pass the command that kicks off your Capybara Session to the "xvfb-run" command.
 
+#### Command Line{.snippet-heading}
 {{< highlight bash >}}
 xvfb-run bundle exec rake scrape_pdfs
 {{< /highlight >}}
@@ -120,6 +126,7 @@ And there you have it a simple way to run non headless Chrome Driver session in 
 
 The default screen size for the "xfvb-run" command is fairly small.  So if you are interacting with a responsive website and need you change the virtual screen dimensions run the command like so...
 
+#### Command Line{.snippet-heading}
 {{< highlight bash >}}
 xvfb-run --server-args='-screen 0 1024x768x24' bundle exec rake scrape_pdfs
 {{< /highlight >}}
