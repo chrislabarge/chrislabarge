@@ -105,7 +105,7 @@ form .field .pickr {
 Stimulus Integration
 ------------------------------------
 
-#### app/javascript/controller/color-picker.js  {.snippet-heading}
+#### app/javascript/controllers/color_picker_controller.js  {.snippet-heading}
 ```javascript
 import { Controller } from "stimulus";
 import Pickr from "@simonwep/pickr";
