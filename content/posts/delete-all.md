@@ -1,5 +1,5 @@
 ---
-title: "How to use Rails the Active Record Relation method #delete_all"
+title: "How to use Rails Active Record Relation method #delete_all"
 description: "A quick overview of a Ruby on Rails ActiveRecord::Relation method '#delete_all'. A fast way to purge your Date Base of rows from a Table."
 date: 2018-05-23T18:30:21-05:00
 dateMod: 2023-04-17T13:00:21-05:00
