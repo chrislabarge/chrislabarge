@@ -93,10 +93,14 @@ function showFilesOnly() {
   document.querySelector("#normalView").style.display = "inline-block";
   document.querySelector(".blog-post-content").classList.add("files-only")
 
+  document.querySelectorAll('img[src*="#visible"]').forEach((image) => {
+    image.parentElement.classList.add("visible")
+  })
+
   document.querySelectorAll(".snippet-heading").forEach((heading) => {
     if (!heading.classList.contains("no-file-only")) {
       heading.classList.add("visible")
-      heading.nextSibling.nextSibling.classList.add("visible")
+      heading.nextElementSibling.classList.add("visible")
     }
   })
 }

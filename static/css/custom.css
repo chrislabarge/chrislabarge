@@ -13,6 +13,10 @@
   display: block;
 }
 
+img[src*="#visible"] {
+  display: block;
+}
+
 html, body {
   height: 100%;
 }
