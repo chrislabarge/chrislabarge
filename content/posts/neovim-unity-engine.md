@@ -69,7 +69,7 @@ Lets breakdown this simple file.
 - `--servername unity` is how we name the neovim server instance.
 - `$@` allows the Unity Game Editor to pass in File arguments into the (executable) file.
 
-Now we must make the file an executable.
+Now you must make the file an executable.
 
 #### Command Line {.snippet-heading}
 ```bash
