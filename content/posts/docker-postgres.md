@@ -34,7 +34,7 @@ I also like to treat the postgres database in the container as if it were instal
 locally by binding the port to localhost.
 
 I find this helps limit configuration issues when working on new projects.
-Now all I will have worry about is my DB username, and password.
+Now all I will have worry about is my database `username` and `password`.
 
 Command
 ----------------------
@@ -47,20 +47,20 @@ This entire command is not specific to `postgres`.  You run commands like this u
 Lets break this command down.
 
 - `docker run` Run a command in a new container
-- `--name` the custom name of the container ( I prefer to prefix it with `localhost` in case I have other postgres docker containers, NOT binded to localhost.)
+- `--name` the custom name of the container ( I prefer to prefix it with `localhost` in case I have other postgres docker containers, NOT binded to localhost)
 - `-d` Run container in background and print container ID
 - `-e` Set environment variables
-- `POSTGRES_USER=` fill this value with username for your projects database configuration/secret files. (do not include the ENV variable in the command if you prefer to use default `postgres` as your username)
-- `POSTGRES_PASSWORD=` fill this value with the password for your projects database configuration/secret files. (this ENV variable is required for the container)
-- `-p` Publish a container's port(s) to the host
-- `5432:5432` The default container postgres port binded to the default localhost postgres port.  [5432](https://www.adminsub.net/tcp-udp-port-finder/5432)
+- `POSTGRES_USER=` fill this value with `username` for your projects database configuration/secret files. (do not include the ENV variable in the command if you prefer to use default `postgres` as your username)
+- `POSTGRES_PASSWORD=` fill this value with the `password` for your projects database configuration/secret files. (this ENV variable is required for the container)
+- `-p` Publish a container's port(s) to the hosj
+- `5432:5432` The default container postgres port binded to the default localhost postgres port [5432](https://www.adminsub.net/tcp-udp-port-finder/5432)
 - `postgres` The installed postgres docker image you are using for the container
 
 
 Using
 -------------
 
-Now all you have to do is is use the value for `POSTGRES_USER=` as your database username and `POSTGRES_PASSWORD=` as your database password.
+Now all you have to do is is use the value for `POSTGRES_USER=` as your database `username` and `POSTGRES_PASSWORD=` as your database `password`.
 
 #### rails_project/.env {.snippet-heading}
 ```yml
