@@ -1,7 +1,7 @@
 ---
-title: "Bind Postgres Docker Container to Localhost"
+title: "Port Forward Postgres Docker Container to Localhost"
 description: "A guide for binding the port of a docker container running postgres to localhost"
-date: 2021-01-14T18:30:21-05:00
+date: 2021-02-05T18:30:21-05:00
 draft: false
 img: 'binding-knot.jpg'
 imgAlt: "A header image of two iron cables binded in a knot"
@@ -31,7 +31,7 @@ image. I prefer using a docker container of this image in replace of local postg
 it is much less of a headache.
 
 I also like to treat the postgres database in the container as if it were installed
-locally by binding the port to localhost.
+locally by forwarding the container port to localhost.
 
 I find this helps limit configuration issues when working on new projects.
 Now all I will have worry about is my database `username` and `password`.
@@ -52,8 +52,8 @@ Lets break this command down.
 - `-e` Set environment variables
 - `POSTGRES_USER=` fill this value with `username` for your projects database configuration/secret files. (do not include the ENV variable in the command if you prefer to use default `postgres` as your username)
 - `POSTGRES_PASSWORD=` fill this value with the `password` for your projects database configuration/secret files. (this ENV variable is required for the container)
-- `-p` Publish a container's port(s) to the hosj
-- `5432:5432` The default container postgres port binded to the default localhost postgres port [5432](https://www.adminsub.net/tcp-udp-port-finder/5432)
+- `-p` Publish a container's port(s) to the host
+- `5432:5432` The default container postgres port mapped (fowarded) to the default localhost postgres port [5432](https://www.adminsub.net/tcp-udp-port-finder/5432)
 - `postgres` The installed postgres docker image you are using for the container
 
 
