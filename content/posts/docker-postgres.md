@@ -9,7 +9,7 @@ filesOnly: true
 categories:
   - dev-tools
 tags:
- - rails
+ - ruby-on-rails
  - docker
 ---
 
