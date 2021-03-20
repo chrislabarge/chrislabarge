@@ -41,7 +41,7 @@ Command
 
 #### terminal {.snippet-heading}
 ```bash
-docker run --name localhost-postgres -p 5432:5432 -e POSTGRES_USER=some_user POSTGRES_PASSWORD=some_password -d postgres
+docker run --name localhost-postgres -p 5432:5432 -e POSTGRES_USER=some_user -e POSTGRES_PASSWORD=some_password -d postgres
 ```
 This entire command is not specific to `postgres`.  You run commands like this using most one off docker images.
 Lets break this command down.
